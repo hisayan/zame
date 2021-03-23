@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Zame</title>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+    <link rel='stylesheet' href='stylesheets/style.css' />
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicons/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.1/control_utils.css" crossorigin="anonymous">
+    <!-- script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.1/camera_utils.js" crossorigin="anonymous"></script -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.1/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.2/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic@0.1/holistic.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./stylesheets/face.css">
+</head>
+
+<body>
+    <!--<audio id="clearsound" src="sound/Dirty-Work.ogg" preload="auto"></audio>-->
+    <audio id="gamesound" src="./sounds/background_bgm_trim.ogg" preload="auto" loop></audio>
+    <audio id="audioken" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.2&range=1.1&text=%E3%81%91%E3%82%93" preload="auto"></audio>
+    <audio id="audiopa" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.7&range=0.9&text=%E3%81%B1" preload="auto"></audio>
+    <audio id="audiostart" src="./sounds/game-start.ogg" preload="auto"></audio>
+    <audio id="audiokenkenpa" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.7&range=0.9&text=けんけんぱっ" preload="auto"></audio>
+    <audio id="reversestart" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.5&range=0.9&text=オーディエンスモード スタート" preload="auto"></audio>
+    <audio id="reverseend" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.5&range=0.9&text=オーディエンスモード 終わり" preload="auto"></audio>
+    <audio id="audio_gameover" src="./sounds/game-over.ogg" preload="auto"></audio>
+    <audio id="timeisup" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.5&range=0.9&text=タイムアップ" preload="auto"></audio>
+    <audio id="move" src="./sounds/move.ogg" preload="auto"></audio>
+    <audio id="rotate" src="./sounds/move.ogg" preload="auto"></audio>
+    <audio id="clearline" src="./sounds/disappear.ogg" preload="auto"></audio>
+    <audio id="ground" src="./sounds/score_up.ogg" preload="auto"></audio>
+    <img src="images/logo.png" id="logo">
+
+    <div id="stage-wrapper">
+            <div id="stage-left">
+				
+            </div>
+        <div id="stage-main">
+            
+            <div id="score-wrapper"><img src="images/head_score.png" class="title"> <span id="score"><img src="/images/numbers/0.png" /></span></div>
+            <div id="time-wrapper"><span id="time"><img src="/images/numbers/0.png" /><img src="/images/numbers/3.png" />:<img src="/images/numbers/0.png" /><img src="/images/numbers/0.png" /></span></div>
+            <div id="stage">
+                <div id="gameover" style="display:none;position:absolute"><img src="./images/game_over.png" /></div>
+        
+                <canvas width='330' height='628'></canvas>
+
+                <div class="control-panel">
+                </div>
+
+            </div>
+            <div class="player-bg">
+                    <canvas class="player_canvas" width="496px" height="279px"></canvas>
+                    <canvas class="player_canvas" width="496px" height="279px"></canvas>
+                    <canvas class="player_canvas" width="496px" height="279px"></canvas>
+                    <canvas class="player_canvas" width="496px" height="279px"></canvas>
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <div class="message">
+                            Loading
+                        </div>
+                    </div>
+            </div>
+            <div class="container">
+                    <video class="input_video"></video>
+                    <canvas class="output_canvas" width="1280px" height="720px"></canvas>
+
+
+            </div>
+        </div>
+        <div id="stage-right">
+			
+        </div>
+    </div>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+    <script src='javascripts/tetris.js'></script>
+    <script src='javascripts/controller.js'></script>
+    <script src='javascripts/render.js'></script>
+    <script src="javascripts/face.js"></script>
+</body>
+
+</html>

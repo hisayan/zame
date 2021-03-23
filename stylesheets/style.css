@@ -1,0 +1,130 @@
+body {
+  padding: 30px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #FFF600;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#score-wrapper {  
+  text-align: center;
+  margin-bottom: 1em;
+}
+#score-wrapper .title{
+  text-align: left;
+	width: 60px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+#score-wrapper span#score img {
+  height: 30px;
+}
+
+#time-wrapper {
+  visibility: hidden;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#time-wrapper span#time img {
+  height: 25px;
+}
+
+canvas {
+  display: table-cell;
+  /* display: block; */
+  /* margin: auto; */
+} 
+
+#stage {
+  display: table;
+  text-align: center;
+  margin: 180px auto 0;
+}
+.kenkenpa {
+  width: 200px;
+  display: table-cell;
+  vertical-align:middle;
+}
+
+#logo {
+  display: block;
+  margin:0 auto;
+  position: relative;
+	height: 140px;
+}
+
+/* entire container, keeps perspective */
+#logo {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
+}
+
+#logo.reverse {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transition: 0.6s;
+  -moz-transform-style: preserve-3d;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+}
+
+#logo.normal {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transition: 0.6s;
+  -moz-transform-style: preserve-3d;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+}
+
+
+#stage-wrapper {
+  width: 100%;
+  display: table;
+}
+
+#stage-main, #stage-left, #stage-right {
+	display: table-cell;
+	padding: 0;
+	margin: 0;
+}
+
+#stage-left h2, #stage-right h2{
+text-align: center;
+color: #393939;
+font-size: xx-large;
+}
+
+#stage-left{
+	width: 30%;
+	/*background-image: url(../images/screen_left.png);*/
+	background-repeat: no-repeat;
+	background-position: center top 80px;
+	background-size: auto 70%;
+}
+#stage-right {
+position: relative;
+    left: -130px;
+    width: 30%;
+    background-image: url(../images/screen_right.png);
+    background-repeat: no-repeat;
+    background-position: center top 50px;
+    background-size: auto 94%;
+}
+
+
+#content {
+	background-color: #CC6633;
+}

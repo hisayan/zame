@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zame</title>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+        <link rel='stylesheet' href='stylesheets/style.css' />
+        <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicons/favicon.ico">
+        <link rel="icon" type="image/vnd.microsoft.icon" href="/favicons/favicon.ico">
+        <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicons/favicons//android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-160x160.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicons//favicon-196x196.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+        <link rel="manifest" href="/favicons/manifest.json">
+        <meta name="msapplication-TileColor" content="#2d88ef">
+        <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+    </head>
+    <body>
+        <!--<audio id="clearsound" src="sound/Dirty-Work.ogg" preload="auto"></audio>-->
+        <audio id="gamesound" src="sound/Dirty-Work.ogg" preload="auto" loop></audio>
+        <audio id="audioken" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.2&range=1.1&text=%E3%81%91%E3%82%93" preload="auto"></audio>
+        <audio id="audiopa" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.7&range=0.9&text=%E3%81%B1" preload="auto"></audio>
+        <audio id="audiostart" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.7&range=0.9&text=ゲームスタート" preload="auto"></audio>
+        <audio id="audiokenkenpa" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.7&range=0.9&text=けんけんぱっ" preload="auto"></audio>
+        <audio id="reversestart" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.5&range=0.9&text=オーディエンスモード スタート" preload="auto"></audio>
+        <audio id="reverseend" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.5&range=0.9&text=オーディエンスモード 終わり" preload="auto"></audio>
+        <audio id="gameover" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.5&range=0.9&text=ゲームオーバー" preload="auto"></audio>
+        <audio id="timeisup" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.5&range=0.9&text=タイムアップ" preload="auto"></audio>
+		<img src="images/logo.png" id="logo">
+		
+        <div id="stage-wrapper">
+
+            <div id="stage-main">
+                <div id="score-wrapper" ><img src="images/head_score.png" class="title"> <span id="score"><img src="/images/numbers/0.png" /></span></div>
+                <div id="time-wrapper" ><span id="time"><img src="/images/numbers/0.png" /><img src="/images/numbers/3.png" />:<img src="/images/numbers/0.png" /><img src="/images/numbers/0.png" /></span></div>
+                <div id="stage">
+                   
+                    <canvas width='300' height='600'></canvas>
+                  
+                </div>
+            </div>
+
+        </div>
+        <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+        <script src='javascripts/tetris.js'></script>
+        <script src='javascripts/controller.js'></script>
+        <script src='javascripts/render.js'></script>
+        <script src="socket.io/socket.io.js"></script>
+        <script src="javascripts/microbit.js"></script>
+        <script>
+            // 35億の音声データの生成
+            jQuery(function($) {
+                xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://api.apigw.smt.docomo.ne.jp/voiceText/v1/textToSpeech?APIKEY=356f52666148512e4f31364779626b35314a714a37364a47784c36773071576644637a2e44444f6b746141', true);
+
+                xhr.responseType = 'arraybuffer'
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+                var datax = "text=35おく&speaker=hikari&emotion=happiness&emotion_level=1&format=ogg";
+
+                xhr.onload = function (e) {
+                    if( this.status == 200){
+                        view = new Uint8Array(this.response);
+                        blob = new Blob([view], { "type" : "audio/wav" });
+                        URL = window.URL || window.webkitURL;
+
+                        audio = new Audio(URL.createObjectURL(blob));
+                        //audio.play();
+                    }
+                };
+                data = datax;
+                xhr.send(data);
+            });
+
+            function sound(){
+                alert("start");
+                audio.play();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kenparis</title>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel='stylesheet' href='stylesheets/ranking.css' />
+    </head>
+    <body>
+        <audio id="audioken" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.2&range=1.1&text=%E3%81%91%E3%82%93" preload="auto"></audio>
+        <audio id="audiopa" src="http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=MA2017&password=MnYrnxhH&speaker_name=chihiro&speed=1.1&pitch=1.7&range=0.9&text=%E3%81%B1" preload="auto"></audio>
+        <h1 class="title">HIGH SCORE</h1>
+        <div id="stage-wrapper">
+            <div id="stage-left">
+            </div>
+            <div id="stage-main">
+                <div id="stage">
+                    <table id="ranking">
+                        <thead>
+                            <tr><th>RANK</th><th>NAME</th><th>SCORE</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="stage-right">
+            </div>
+        </div>
+        <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="javascripts/jquery.ba-bbq.js"></script>
+        <script src="javascripts/ranking.js"></script>
+        <script src="socket.io/socket.io.js"></script>
+        <script src="javascripts/microbit.js"></script>
+        <script>
+            // microbit.js からも keyPress() を呼び出している
+            document.body.onkeydown = function( e ) {
+                // キーに名前をセットする
+                var keys = {
+                    37: 'left',
+                    39: 'right',
+                    40: 'down',
+                    38: 'rotate',
+                    32: 'start',
+                };           
+                if ( typeof keys[ e.keyCode ] != 'undefined' ) {
+                    keyPress( keys[ e.keyCode ] );
+                }                
+            };
+        </script>
+    </body>
+</html>
